@@ -1,8 +1,10 @@
+// HOME BUTTON / EXPLORE GIFTS
 function showMessage() {
-    document.getElementById("products").scrollIntoView({
-        behavior: "smooth"
-    });
+    showPage("#products");
 }
+
+
+// SHOPPING CART
 let cart = [];
 
 function addToCart(name, price) {
@@ -12,8 +14,9 @@ function addToCart(name, price) {
     });
 
     displayCart();
- alert(name +"added to cart!");
+    alert(name + " added to cart!");
 }
+
 
 function displayCart() {
     const cartItems = document.getElementById("cart-items");
@@ -43,52 +46,69 @@ function displayCart() {
     totalElement.textContent = total;
 }
 
+
 function removeItem(index) {
     cart.splice(index, 1);
     displayCart();
 }
+
 
 function clearCart() {
     cart = [];
     displayCart();
 }
 
+
+// BUY NOW
 function buyNow(name, price) {
     document.getElementById("productName").value = name;
 
     document.getElementById("quantity").value = 1;
 
-    document.getElementById("customer-form").scrollIntoView({
-        behavior: "smooth"
-    });
+    showPage("#customer-form");
 }
 
-document.getElementById("orderForm").addEventListener("submit", function(event) {
 
-    event.preventDefault();
+// SLIDE NAVIGATION
+function showPage(targetId) {
+    const pages = [
+        document.querySelector(".hero"),
+        document.getElementById("products"),
+        document.getElementById("customer-form"),
+        document.getElementById("cart"),
+        document.getElementById("contact")
+    ];
 
-    const name = document.getElementById("customerName").value;
-    const mobile = document.getElementById("mobile").value;
-    const address = document.getElementById("address").value;
-    const product = document.getElementById("productName").value;
-    const quantity = document.getElementById("quantity").value;
-    const customization = document.getElementById("customization").value;
+    const targetPage = targetId === "#home"
+        ? document.querySelector(".hero")
+        : document.querySelector(targetId);
 
-    const message =
-        "💜 TINY TREASURES - NEW ORDER 💜\n\n" +
-        "Customer Name: " + name + "\n" +
-        "Mobile: " + mobile + "\n" +
-        "Address: " + address + "\n" +
-        "Product: " + product + "\n" +
-        "Quantity: " + quantity + "\n" +
-        "Customization: " + (customization || "Not specified");
+    if (!targetPage) return;
 
-    const whatsappNumber = "919597071935";
+    pages.forEach(function(page) {
+        if (page) {
+            page.style.display = "none";
+            page.classList.remove("slide-active");
+        }
+    });
 
-    const whatsappURL =
-        "https://wa.me/" + whatsappNumber +
-        "?text=" + encodeURIComponent(message);
+    targetPage.style.display = "block";
 
-    window.open(whatsappURL, "_blank");
+    // Restart animation
+    void targetPage.offsetWidth;
 
-});
+    targetPage.classList.add("slide-active");
+}
+
+
+// NAVIGATION MENU
+document.addEventListener("DOMContentLoaded", function() {
+
+    const navLinks = document.querySelectorAll("nav a");
+
+    navLinks.forEach(function(link) {
+
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const targetId =
