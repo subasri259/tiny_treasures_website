@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tiny Treasures | Customized Gifts</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="home">
+
+        <h1>🎁 Tiny Treasures</h1>
+
+        <p>Make Every Moment Special 💜</p>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#cart">My Cart 🛒</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HOME SECTION -->
+    <section class="hero">
+
+        <h2>Gifts Made With Love 💝</h2>
+
+        <p>Beautiful gifts for your favourite people.</p>
+
+        <button onclick="showMessage()">
+            Explore Our Gifts
+        </button>
+
+    </section>
+
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products">
+
+        <h2>Our Gift Collection 🎀</h2>
+
+        <div class="products">
+
+            <!-- PRODUCT 1 -->
+            <div class="card">
+
+                <h3>🖼️ Photo Frames</h3>
+
+                <p>Memories to keep forever.</p>
+
+                <p>Starting from ₹119</p>
+
+                <button onclick="addToCart('Photo Frames', 149)">
+                    Add to Cart
+                </button>
+
+                <button onclick="buyNow('photo Frames',149)">
+                    Buy Now
+
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="card">
+
+                <h3>🎁 Customized Gift Hampers</h3>
+
+                <p>Special surprises for special people.</p>
+
+                <p>Starting from ₹199</p>
+
+                <button onclick="addToCart('Gift Hampers', 199)">
+                    Add to Cart
+                </button>
+
+                 <button onclick="buyNow('Gift Hampers',199)">
+                    Buy Now
+
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="card">
+
+                <h3>📸 Polaroid Photos</h3>
+
+                <p>Your favourite memories in print.</p>
+
+                <p>15 Photos – ₹149</p>
+
+                <button onclick="addToCart('Polaroid Photos', 149)">
+                    Add to Cart
+                </button>
+
+                 <button onclick="buyNow(' Polaroid Photos',149)">
+                    Buy Now
+
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="card">
+
+                <h3>🎀 Thread Bangles</h3>
+
+                <p>Elegance wrapped around your wrists.</p>
+
+                <p>Starting from ₹149</p>
+
+                <button onclick="addToCart('Thread Bangles', 149)">
+                    Add to Cart
+                </button>
+
+                 <button onclick="buyNow('Thread Bangles',149)">
+                    Buy Now
+
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+            <div class="card">
+
+                <h3>👛 Customized Name Wallet</h3>
+
+                <p>A special gift for your favourite people.</p>
+
+                <p>Only ₹249</p>
+
+                <button onclick="addToCart('Name Wallet', 249)">
+                    Add to Cart
+                </button>
+
+                 <button onclick="buyNow('name Wallet',249)">
+                    Buy Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CUSTOMER DETAILS FORM -->
+
+<section id="customer-form">
+
+    <h2>📝 Customer Details</h2>
+
+    <p>Fill in your details to order your favourite gifts 💜</p>
+    <br><br>
+
+    <form id="orderForm">
+
+        <label for="customerName">Your Name</label>
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your name"
+            required
+        >
+        <br><br>
+
+        <label for="mobile">Mobile Number</label>
+        <input
+            type="tel"
+            id="mobile"
+            placeholder="Enter 10-digit mobile number"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            required
+        >
+        <br><br>
+
+        <label for="address">Full Address</label>
+        <br><br>
+        <textarea
+            id="address"
+            placeholder="Enter your full address"
+            rows="4"
+            required
+        ></textarea>
+        <br><br>
+
+        <label for="productName">Product Name</label>
+        <input
+            type="text"
+            id="productName"
+            readonly
+            required
+        >
+        <br><br>
+
+        <label for="quantity">Quantity</label>
+        <input
+            type="number"
+            id="quantity"
+            min="1"
+            value="1"
+            required
+        >
+        <br><br>
+
+        <label for="customization">Customization Details</label>
+        <textarea
+            id="customization"
+            placeholder="Name, colour, design, etc. (optional)"
+            rows="3"
+        ></textarea>
+        <br><br>
+
+        <button type="submit">
+            Continue to WhatsApp 💚
+        </button>
+        <br><br>
+
+    </form>
+
+</section>
+
+
+    <!-- SHOPPING CART SECTION -->
+    <section id="cart">
+
+        <h2>🛒 Your Shopping Cart</h2>
+
+        <div id="cart-items">
+
+            <p>Your cart is empty 💜</p>
+
+        </div>
+
+        <h3>
+            Total: ₹<span id="total">0</span>
+        </h3>
+
+        <button onclick="clearCart()">
+            Clear Cart
+        </button>
+
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <footer id="contact">
+
+        <h3>Tiny Treasures 💜</h3>
+
+        <p>Customized gifts made with love.</p>
+
+        <p>Follow us on Instagram:</p>
+
+        <p>
+            <strong>@Tiny__treasures_11</strong>
+        </p>
+
+        <p>Thank you for visiting our store! 🎁</p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT CONNECTION -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
