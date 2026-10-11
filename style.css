@@ -436,3 +436,29 @@ footer p {
 
 
 /* REDUCED MOTION ACCESS
+
+/* =========================
+   PAGE SLIDE TRANSITION
+========================= */
+
+.page-section,
+.hero,
+#products,
+#customer-form,
+#cart,
+#contact {
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
